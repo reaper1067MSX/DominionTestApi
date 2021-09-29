@@ -36,11 +36,16 @@ namespace Test
             var connectionString = _configuration.GetConnectionString("DefaultConnection");
             if (isDevelopment())
             {
-                var dbServer = _configuration.GetConnectionString("Local");
+                var dbServer = _configuration.GetSection("ConnectionServer")["Local"];
                 if (string.IsNullOrEmpty(dbServer))
                 {
-                    dbServer = _configuration.GetConnectionString("External");
+                    dbServer = _configuration.GetSection("ConnectionServer")["External"];
                 }
+                connectionString = string.Format(connectionString, dbServer);
+            }
+            else
+            {
+                var dbServer = _configuration.GetSection("ConnectionServer")["External"];
                 connectionString = string.Format(connectionString, dbServer);
             }
 
@@ -51,6 +56,7 @@ namespace Test
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            
             if (env.IsDevelopment())
             {
                 app.UseHttpsRedirection();

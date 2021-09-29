@@ -19,7 +19,7 @@
     },
     "Production": {
       "commandName": "Project",
-      "launchBrowser": true,
+      "launchBrowser": false,
       "launchUrl": "weatherforecast",
       "applicationUrl": "https://localhost:5001",
       "environmentVariables": {

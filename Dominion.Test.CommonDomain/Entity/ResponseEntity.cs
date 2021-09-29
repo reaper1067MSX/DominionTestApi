@@ -13,5 +13,10 @@ namespace Dominion.Test.CommonDomain.Entity
         public dynamic Response { get; set; }
 
         public List<string> ErrorList { get; set; }
+
+        public ResponseEntity()
+        {
+            ErrorList = new List<string>();
+        }
     }
 }
