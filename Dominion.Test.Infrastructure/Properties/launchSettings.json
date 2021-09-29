@@ -1,0 +1,16 @@
+﻿{
+  "profiles": {
+    "Dominion.Infrastructure.Dev": {
+      "commandName": "ProjectDev",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "Dominion.Infrastructure.Pro": {
+      "commandName": "ProjectPro",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Production"
+      }
+    }
+  }
+}
